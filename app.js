@@ -46,7 +46,7 @@ const addTask = function () {
   const listItem = createNewTaskElement(taskInput.value);
 
   incompleteTaskHolder.appendChild(listItem);
-  bindTaskEvents(listItem, toggleTask);
+  bindTaskEvents(listItem);
 
   taskInput.value = '';
 };
@@ -83,12 +83,21 @@ const toggleTask = function () {
 
 addButton.onclick = addTask;
 
-const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
+const bindTaskEvents = function (taskListItem) {
   const checkBox = taskListItem.querySelector('input[type=checkbox]');
   const editButton = taskListItem.querySelector('button.edit');
   const deleteButton = taskListItem.querySelector('button.delete');
 
   editButton.onclick = editTask;
   deleteButton.onclick = deleteTask;
-  checkBox.onchange = checkBoxEventHandler;
+  checkBox.onchange = toggleTask;
 };
+
+const bindAllTaskEvents = function (taskList) {
+  for (const taskItem of taskList.children) {
+    bindTaskEvents(taskItem);
+  }
+};
+
+bindAllTaskEvents(incompleteTaskHolder);
+bindAllTaskEvents(completedTasksHolder);
