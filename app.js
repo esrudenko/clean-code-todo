@@ -79,7 +79,6 @@ const toggleTask = function () {
   const listItem = this.parentNode;
   const targetList = this.checked ? completedTasksHolder : incompleteTaskHolder;
   targetList.appendChild(listItem);
-  bindTaskEvents(listItem, toggleTask);
 };
 
 addButton.onclick = addTask;
