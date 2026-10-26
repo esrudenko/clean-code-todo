@@ -1,7 +1,7 @@
-const taskInput = document.getElementById('new-task'); //Add a new task.
-const addButton = document.getElementsByTagName('button')[0]; //first button
-const incompleteTaskHolder = document.getElementById('incompleteTasks'); //ul of #incompleteTasks
-const completedTasksHolder = document.getElementById('completed-tasks'); //completed-tasks
+const taskInput = document.getElementById('new-task');
+const addButton = document.getElementsByTagName('button')[0];
+const incompleteTaskHolder = document.getElementById('incompleteTasks');
+const completedTasksHolder = document.getElementById('completed-tasks');
 
 const createNewTaskElement = function (taskString) {
   const listItem = document.createElement('li');
@@ -11,7 +11,6 @@ const createNewTaskElement = function (taskString) {
   const editInput = document.createElement('input');
   const editButton = document.createElement('button');
 
-  //button.delete
   const deleteButton = document.createElement('button');
   const deleteButtonImg = document.createElement('img');
 
